@@ -1,4 +1,11 @@
 @import-normalize;
+@import 'react-loading-skeleton/dist/skeleton.css';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;

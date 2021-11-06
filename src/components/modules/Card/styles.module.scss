@@ -1,4 +1,5 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .wrapper {
   display: flex;
@@ -9,12 +10,26 @@
   text-decoration: none;
 }
 
+.media {
+  margin-top: auto;
+}
+
 .cardList {
   display: flex;
   flex-flow: column;
   gap: $space-8;
+
+  @include md {
+    display: grid;
+    grid-template-columns: Repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: Repeat(3, 1fr);
+  }
 }
 
 .title {
   text-align: center;
+  padding: 0 $space-4;
 }

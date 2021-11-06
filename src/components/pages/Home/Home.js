@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Hero from '../../elements/Hero';
 import Text from '../../elements/Text';
 import Spacer from '../../elements/Spacer';
-import Card, { CardList } from '../../modules/Card';
+import Card, { CardList, CardSkeleton } from '../../modules/Card';
 import homeImage from '../../../assets/home-background.jpg';
 import logo from '../../../assets/logo.png';
 import { getRandomRecipes } from 'utils/api';
@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 
 const Home = () => {
   const [recipes, setRecipes] = useState(null);
+
   useEffect(() => {
     const getRecipes = async () => {
       const recipes = await getRandomRecipes();
@@ -24,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <main>
       <Hero imageSrc={homeImage}>
         <img src={logo} alt="The meal App" width={130} height={130} />
       </Hero>
@@ -33,21 +34,23 @@ const Home = () => {
         Recipes of the day
       </Text>
       <Spacer y={8}></Spacer>
-
-      {recipes && (
-        <CardList>
-          {recipes.map(({ strMealThumb, strMeal, idMeal }) => {
-            return (
-              <Card
-                to={`/recipes/${idMeal}`}
-                imageSrc={strMealThumb}
-                title={strMeal}
-              ></Card>
-            );
-          })}
-        </CardList>
-      )}
-    </>
+      <CardList>
+        {recipes
+          ? recipes.map(({ strMealThumb, strMeal, idMeal }, index) => {
+              return (
+                <Card
+                  key={`${idMeal}-${index}`}
+                  to={`/recipes/${idMeal}`}
+                  imageSrc={strMealThumb}
+                  title={strMeal}
+                ></Card>
+              );
+            })
+          : [...Array(5).keys()].map((_, index) => {
+              return <CardSkeleton key={index}></CardSkeleton>;
+            })}
+      </CardList>
+    </main>
   );
 };
 

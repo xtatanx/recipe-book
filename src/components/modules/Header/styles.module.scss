@@ -1,0 +1,15 @@
+@import '../../../scss/variables';
+
+.wrapper {
+  display: flex;
+  background-color: $color-gray;
+  padding: $space-4 $space-3;
+  width: 100%;
+  color: $color-white;
+  display: flex;
+}
+
+.backBtn {
+  color: $color-white;
+  margin-right: auto;
+}

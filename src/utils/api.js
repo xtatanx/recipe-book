@@ -12,4 +12,10 @@ const getRandomRecipes = (numOfRecipes = 5) => {
   return Promise.all(requests);
 };
 
-export { getRandomRecipes };
+const getRecipeById = (id) => {
+  if (!id) return;
+
+  return instance.get(`/lookup.php?i=${id}`);
+};
+
+export { getRandomRecipes, getRecipeById };

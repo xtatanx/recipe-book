@@ -23,7 +23,12 @@ const Card = ({ imageSrc, imageAlt = '', title, to }) => {
         {title}
       </Text>
       <Spacer y={8}></Spacer>
-      <Hero imageSrc={imageSrc} imageAlt={imageAlt}></Hero>
+      <Hero
+        className={styles.media}
+        imageSrc={imageSrc}
+        imageAlt={imageAlt}
+        size="card"
+      ></Hero>
     </CardWrapper>
   );
 };

@@ -1,0 +1,7 @@
+@import '../../../scss/variables';
+
+.wrapper {
+  width: 100%;
+  max-width: calc(1200 + $space-8);
+  padding: 0 $space-4;
+}
