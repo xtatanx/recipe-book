@@ -1,3 +1,5 @@
+@import '../../../scss/variables';
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -29,5 +31,5 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  width: calc(100% - 32px);
+  width: calc(100% - #{$space-8});
 }
