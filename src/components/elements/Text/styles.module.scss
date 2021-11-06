@@ -1,0 +1,23 @@
+@import '../../../scss/variables';
+
+.text {
+  margin: 0;
+  padding: 0;
+}
+
+.headline {
+  font-size: $font-1;
+  font-weight: bold;
+}
+
+.primary {
+  font-size: $base-font-size;
+}
+
+.secondary {
+  font-size: $font-3;
+}
+
+.tertiary {
+  font-size: $font-4;
+}
