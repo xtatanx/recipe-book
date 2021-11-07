@@ -2,7 +2,7 @@
 
 This project is an small app to retrieve and display recipes based on these [instructions](https://github.com/EverlyWell/react-challenge)
 
-The project is deployed [here]
+The project is deployed [here](https://everlywell-jhonnatan.herokuapp.com/)
 
 ## Dependencies
 

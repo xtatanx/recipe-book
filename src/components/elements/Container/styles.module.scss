@@ -2,6 +2,7 @@
 
 .wrapper {
   width: 100%;
-  max-width: calc(1200 + #{$space-8});
+  max-width: calc(1200px + #{$space-8});
   padding: 0 $space-4;
+  margin: 0 auto;
 }
