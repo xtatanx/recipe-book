@@ -6,8 +6,8 @@ The project is deployed [here]
 
 ## Dependencies
 
-- Node >=16.0.0
-- Yarn >=1.22.5
+- Node 16.0.0
+- Yarn 1.22.5
 
 ## Tech stack
 
