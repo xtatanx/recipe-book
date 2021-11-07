@@ -1,10 +1,28 @@
-# Getting Started with Create React App
+# Everlywell test - Jhonnatan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an small app to retrieve and display recipes based on these [instructions](https://github.com/EverlyWell/react-challenge)
 
-## Available Scripts
+The project is deployed [here]
 
-In the project directory, you can run:
+## Dependencies
+
+- Node >=16.0.0
+- Yarn >=1.22.5
+
+## Tech stack
+
+- React
+- Storybook
+- CSS modules
+- Sass
+
+## How to run the project
+
+- Make sure you are using the correct node version
+- Make sure you are using the correct Yarn version
+- Run `yarn` in the root folder
+
+After all the dependencies are installed you can run:
 
 ### `yarn start`
 
@@ -19,6 +37,10 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn storybook`
+
+Launches an storybook server so you can work your components isolated from the UI.
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
@@ -29,42 +51,44 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## What could I have done better
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Less componetization
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I spent to much time creating components, I could have used this time better for working on the funcitonality.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Unit testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Unit tests are missing, I could have used jest and react testing library to test the components are correctly rendering all their props.
 
-## Learn More
+```js
+// Text.test.js
+const sizes = ['headline', 'primary', 'secondary', 'tertiary'];
+const text = 'this is a test';
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+describe('<Text />', () => {
+  sizes.forEach((size) => {
+    it(`renders ${size} correctly `, () => {
+      const { getByText, container } = render(<Text>{text}</Text>);
+      expect(getByText(text)).toBeInTheDocument();
+      expect(container.firstChild).toHaveClass(size);
+    });
+  });
+});
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Loading random recipes
 
-### Code Splitting
+Right now there is a bug in which sometimes we could get duplicated recipes. To solve this we could create an interceptor in Axios to actually check the result before resolving the promise, at this point maybe we are able to remove the duplicated item and call again the api to get the one thats is missing. That or paying the $2 for getting the random endpoint.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Organize SCSS utils
 
-### Analyzing the Bundle Size
+I could have created a single file so I can import all the shareable partials from there. Even better, we could eject the app and modify the CSS loader so we can import this files on top so its accessible to all SCSS files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Add documentation to storybook
 
-### Making a Progressive Web App
+With some more time I could have added some documentation to improve how the components look in storybook.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Add a better fallback for code splitting
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Create a component to use as a fallback while we lazy load pages

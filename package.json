@@ -2,6 +2,9 @@
   "name": "everlywell-jhonnatan-gonzalez",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
@@ -12,6 +15,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
     "clsx": "^1.1.1",
+    "express": "^4.17.1",
     "history": "5",
     "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
